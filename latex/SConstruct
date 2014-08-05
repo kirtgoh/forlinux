@@ -1,0 +1,5 @@
+# SConstruct for latex
+
+src_list = Glob('*.tex')
+
+PDF(target='Latex_guide.pdf', source = src_list)
