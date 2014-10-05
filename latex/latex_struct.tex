@@ -1,6 +1,8 @@
 % \documentclass[12pt,letterpaper]{article}
 \documentclass[12pt,a4paper]{article}
 \usepackage[left=12mm, top=0.5in, bottom=5in]{geometry}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 
 \begin{document}
 \title{A sample Latex article by 5 minutes of Latex}
@@ -15,5 +17,46 @@ This is a third line.
 \section{Motivation}
 The Motivation behind this tutorial is to share the knowledge for the benefit of
 everyone who wants to start using Latex.
+
+\section{Algorithm} In this tutorial I will explain how to write an algorithm in
+Latex using the algorithm and algorithmic package in Latex.
+
+Specifically, we will learn the following in this tutorial:
+
+\begin{itemize}
+	\item How to write an algorithm in Latex
+	\item Use of algorithm and algorithmic package
+	\item How to use loops in an algorithm
+	\item How to use IF statements in an algorithm
+	\item How to add caption to an algorithm 
+	\item How to label an algorithm to refer it in the document
+\end{itemize}
+
+\begin{algorithm}[H]
+
+\textbf{INPUT:} Set of Base Layer polygon $S_b$ and Set of Overlay Layer polygon
+$S_o$\\
+\textbf{OUTPUT:} Intersection Graph ($V$,$E$), where $V$ is set of polygons and
+$E$ is edges among polygons with intersecting bounding boxes.
+
+	\begin{algorithmic}
+
+	\STATE Parallel Merge Sort set $S_o$ of overlay polygons based on X co-ordinates
+	of bounding boxes\footnotemark[1]
+	\FORALL{base polygon $B_i$ in set $S_b$ of base polygons}
+		\STATE find $S_x \subset S_o$ such that $B_i$ intersects with all elements
+		of $S_x$ over $X$ co-ordinate
+		\FORALL{overlay polygon $O_j$ in $S_x$}
+			\IF {$B_i$ intersects $O_j$ over $Y$ co-ordinate}
+			\STATE{Create Link between $O_j$ and $B_i$}
+			\ENDIF
+		\ENDFOR
+	\ENDFOR
+
+	\end{algorithmic}
+	\caption{Algorithm to create polygon intersection graph}
+	\label{algo:relgraph}
+
+\end{algorithm}
 
 \end{document}
